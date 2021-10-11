@@ -1,5 +1,11 @@
 # battleships_tech_test
 
+## Install
+
+Clone this repo, and install `ruby2d`
+
+`gem install ruby2d`
+
 ## User stories
 
 ```

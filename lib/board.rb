@@ -1,4 +1,5 @@
 require 'ruby2d'
+require_relative 'lines'
 
 SQUARE_SIZE = 40
 
@@ -9,28 +10,8 @@ class Board
 		@board = {}
 	end
 
-	def draw_lines
-		(Window.width / SQUARE_SIZE).times do |x|
-			Line.new(
-				width: 1,
-				color: 'gray',
-				y1: 0,
-				y2: Window.height,
-				x1: x * SQUARE_SIZE,
-				x2: x * SQUARE_SIZE,
-			)
-		end
-
-		(Window.height / SQUARE_SIZE).times do |y|
-			Line.new(
-				width: 1,
-				color: 'gray',
-				x1: 0,
-				x2: Window.width,
-				y1: y * SQUARE_SIZE,
-				y2: y * SQUARE_SIZE,
-			)
-		end
+	def draw_lines(lines)
+		lines.make_grid
 	end
 
 	def set_ship(x,y)

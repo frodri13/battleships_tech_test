@@ -6,7 +6,7 @@ board = Board.new
 
 update do
 	clear 
-	board.draw_lines
+	board.draw_lines(Lines.new(SQUARE_SIZE))
 	board.draw_ships
 end
 

@@ -21,14 +21,9 @@ class Board
 		puts "Grid: #{@board}"
 	end
 
-	def draw_ships
+	def draw_ships(ship)
 		@board.keys.each do |x,y|
-			Square.new(
-				color: 'black',
-				x: x * SQUARE_SIZE,
-				y: y * SQUARE_SIZE,
-				size: SQUARE_SIZE
-			)
+			ship.make_ship(x, y)
 		end
 	end
 end

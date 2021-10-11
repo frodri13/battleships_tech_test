@@ -22,6 +22,12 @@ class Board
 			@board[[x,y]] = true
 			@board[[x , y - 1]] = true
 			@board[[x , y + 1]] = true
+		elsif @size == 'l'
+			@board[[x , y - 2]] = true
+			@board[[x , y - 1]] = true
+			@board[[x,y]] = true
+			@board[[x , y + 1]] = true
+			@board[[x , y + 2]] = true
 		end
 	end
 

@@ -15,4 +15,8 @@ on :mouse_down do |event|
 	board.set_ship(event.x / SQUARE_SIZE, event.y / SQUARE_SIZE)
 end
 
+on :key_down do |event|
+	board.size(event.key)
+end
+
 show

@@ -15,15 +15,23 @@ class Board
 	end
 
 	def set_ship(x,y)
-		@board[[x,y]] = true
-		@board[[x , y - 1]] = true
-		puts "Click: x: #{x}, y: #{y}"
-		puts "Grid: #{@board}"
+		if @size == 's' || @size == nil
+			@board[[x,y]] = true
+			@board[[x , y - 1]] = true
+		elsif @size == 'm'
+			@board[[x,y]] = true
+			@board[[x , y - 1]] = true
+			@board[[x , y + 1]] = true
+		end
 	end
 
 	def draw_ships(ship)
 		@board.keys.each do |x,y|
 			ship.make_ship(x, y)
 		end
+	end
+
+	def size(size)
+		@size = size
 	end
 end

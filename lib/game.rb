@@ -1,12 +1,16 @@
 require_relative 'board'
 require_relative 'ship'
+require_relative 'player'
 
 set background: 'white', width: SQUARE_SIZE * 16, height: SQUARE_SIZE * 12
 
-board = Board.new
+player_1 = Player.new
+player_2 = Player.new
+
+board = Board.new(player_1, player_2)
 
 update do
-	clear 
+	clear
 	board.draw_lines(Lines.new(SQUARE_SIZE))
 	board.draw_ships(Ship.new(SQUARE_SIZE))
 end
@@ -16,7 +20,12 @@ on :mouse_down do |event|
 end
 
 on :key_down do |event|
-	board.size(event.key)
+	if event.key == 'f'
+		board.change_turn
+	else
+		board.size(event.key)
+	end
+	
 end
 
 show

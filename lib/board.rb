@@ -6,8 +6,13 @@ SQUARE_SIZE = 40
 class Board
 	attr_reader :board
 
-	def initialize
-		@board = {}
+	def initialize(player_1, player_2)
+		@player_1 = player_1
+		@player_2 = player_2
+	end
+
+	def change_turn
+
 	end
 
 	def draw_lines(lines)
@@ -16,23 +21,23 @@ class Board
 
 	def set_ship(x,y)
 		if @size == 's' || @size == nil
-			@board[[x,y]] = true
-			@board[[x , y - 1]] = true
+			@player_1.board[[x,y]] = true
+			@player_1.board[[x , y - 1]] = true
 		elsif @size == 'm'
-			@board[[x,y]] = true
-			@board[[x , y - 1]] = true
-			@board[[x , y + 1]] = true
+			@player_1.board[[x,y]] = true
+			@player_1.board[[x , y - 1]] = true
+			@player_1.board[[x , y + 1]] = true
 		elsif @size == 'l'
-			@board[[x , y - 2]] = true
-			@board[[x , y - 1]] = true
-			@board[[x,y]] = true
-			@board[[x , y + 1]] = true
-			@board[[x , y + 2]] = true
+			@player_1.board[[x , y - 2]] = true
+			@player_1.board[[x , y - 1]] = true
+			@player_1.board[[x,y]] = true
+			@player_1.board[[x , y + 1]] = true
+			@player_1.board[[x , y + 2]] = true
 		end
 	end
 
 	def draw_ships(ship)
-		@board.keys.each do |x,y|
+		@player_1.board.keys.each do |x,y|
 			ship.make_ship(x, y)
 		end
 	end

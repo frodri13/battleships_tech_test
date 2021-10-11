@@ -21,6 +21,7 @@ end
 
 on :key_down do |event|
 	if event.key == 'f'
+		clear
 		board.change_turn
 	else
 		board.size(event.key)

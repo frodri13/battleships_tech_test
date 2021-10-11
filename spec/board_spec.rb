@@ -1,11 +1,9 @@
 require 'board'
 
 RSpec.describe Board do
-	 it 'has 10 columns' do
-		 expect(subject.grid.length).to eq(10)
-	 end
 
-	 it 'has 10 rows per column' do
-		 expect(subject.grid[4].length).to eq(10)
-	 end
+	it 'can set a small ship in the board' do
+		subject.set_ship(0,0)
+		expect(subject.board[[0,0]]).to be_truthy
+	end
 end
